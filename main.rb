@@ -8,6 +8,10 @@ get '/' do
 	erb :home
 end
 
+get '/home' do
+	erb :home
+end
+
 get '/easy' do
 	erb :easy
 end
@@ -16,6 +20,6 @@ get '/hard' do
 	erb :hard
 end
 
-get '/home' do
-	erb :home
+get '/storage' do
+	erb :storage
 end
