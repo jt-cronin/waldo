@@ -12,7 +12,12 @@ def getCoordinatesRB
 		yMin = row['yMin']
 		yMax = row['yMax']
 		currentLevel = [xMin, xMax, yMin, yMax]
-		levelChose = {level => currentLevel}
-		return levelChose
+
+		if !levelChose[level]
+			levelChose[level] = currentLevel
+		end
+		
 	end
+	binding.pry
+	return levelChose
 end
