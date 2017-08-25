@@ -18,27 +18,29 @@ window.addEventListener('load', function(){
 		var request = event.target;
 // request.response is what the server sends back once it loads.
 		request.response;
+		debugger
+		alert(request.response);
 
 	};
 
 
 	var checkCoordinates = function(){
-		var request = newXMLHttpRequest();
+		var request = new XMLHttpRequest();
 		request.open("GET", "/storage");
 		request.send();
 
 		request.addEventListener("load", showIfWaldo)
-
-	}
 
 
 	};
 
 	var picture = document.getElementsByClassName('pic')[0];
 	picture.addEventListener('click', function(event){
-		var found = false
+		var found = false;
+		checkCoordinates();
 
-		found = inRange(event);
+
+/*		found = inRange(event);
 		if (found == true){
 			var end = Date.now();
 			total = end - start;
@@ -46,15 +48,7 @@ window.addEventListener('load', function(){
 			var final = "You found waldo in " + time + " seconds!";
 			alert(final);
 		}
-/*
-		if ((758 < x < 788) && (560 < y < 650)){
-			alert("You found waldo");
-		}
-		else {
-			alert("You did not find waldo")
-		}
-		*/
-
+*/
 	});
 
 

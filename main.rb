@@ -2,9 +2,16 @@ require 'sinatra'
 require 'pry'
 require_relative 'functions.rb'
 require 'sinatra/reloader'
+require 'csv'
 
+
+
+get '/trials' do
+	erb :trials
+end
 
 get '/' do 
+
 	erb :home
 end
 
