@@ -1,4 +1,5 @@
 window.addEventListener('load', function(){
+	var sendScoreEasy;
 	var start = Date.now();
 
 	var inRange = function(event){
@@ -18,39 +19,51 @@ window.addEventListener('load', function(){
 		var request = event.target;
 // request.response is what the server sends back once it loads.
 		request.response;
-		debugger
-		alert(request.response);
 
 	};
+
 
 
 	var checkCoordinates = function(){
 		var request = new XMLHttpRequest();
-		request.open("GET", "/storage");
+		request.open("GET", "/easyScores");
 		request.send();
-
 		request.addEventListener("load", showIfWaldo)
 
 
 	};
-
 	var picture = document.getElementsByClassName('pic')[0];
 	picture.addEventListener('click', function(event){
 		var found = false;
 		checkCoordinates();
 
-
-/*		found = inRange(event);
+	found = inRange(event);
 		if (found == true){
 			var end = Date.now();
 			total = end - start;
 			var time = (total / 1000);
-			var final = "You found waldo in " + time + " seconds!";
-			alert(final);
+
+			var name = prompt("Congrats! Enter your name")
+			sendScoreEasy = [name, time];
+			saveTimeEasy(sendScoreEasy);
+			alert("Your score has been saved - " + sendScoreEasy);
 		}
-*/
 	});
 
+
+
+
+	var sendOff = function(event){
+		var request = event.target
+	}
+
+	var saveTimeEasy = function(sendScoreEasy) {
+		var request = new XMLHttpRequest();
+		request.open('POST', "/storage?easyScore=" + sendScoreEasy);
+		request.send();
+
+		request.addEventListener('load', sendOff)
+	}
 
 
 });

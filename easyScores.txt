@@ -1,0 +1,4 @@
+name,score
+John,1.165
+Rob,6.925
+Sam,11.905
