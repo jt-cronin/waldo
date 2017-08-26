@@ -10,7 +10,6 @@ window.addEventListener('load', function(){
 		request.send();
 		request.addEventListener('load', function(event){
 			var scores = event.target
-			debugger
 			formatScores(scores);
 			easyScoreBoard.innerHTML = scores;
 		});
